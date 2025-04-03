@@ -1,0 +1,458 @@
+:root {
+    --nike-color: rgb(245, 100, 0);
+    --puma-color: rgb(0, 114, 187);
+    --nike-gradient: linear-gradient(135deg, rgba(245, 100, 0, 0.7) 0%, rgba(255, 130, 0, 0.7) 100%);
+    --puma-gradient: linear-gradient(135deg, rgba(0, 114, 187, 0.7) 0%, rgba(0, 141, 213, 0.7) 100%);
+    --section-padding: 6rem 0;
+    --card-border-radius: 0.5rem;
+    --transition-speed: 0.3s;
+}
+
+/* General Styling */
+body {
+    padding-top: 76px;
+    overflow-x: hidden;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    transition: all 0.3s ease;
+    scroll-behavior: smooth;
+}
+
+/* Navbar Styling */
+.navbar {
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    background-color: rgba(33, 37, 41, 0.95);
+    transition: all 0.3s ease;
+    padding: 0.8rem 1rem;
+}
+
+.navbar.scrolled {
+    padding: 0.5rem 1rem;
+}
+
+.navbar-brand {
+    font-weight: 700;
+    font-size: 1.4rem;
+    transition: all 0.3s ease;
+}
+
+.nav-link {
+    position: relative;
+    font-weight: 500;
+    padding: 0.5rem 1rem !important;
+    transition: all 0.25s ease-in-out;
+}
+
+.nav-link:after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 50%;
+    background: var(--bs-primary);
+    transition: all 0.25s ease-in-out;
+    transform: translateX(-50%);
+}
+
+.nav-link:hover:after,
+.nav-link.active:after {
+    width: 80%;
+}
+
+/* Brand Accent Colors */
+.nike-accent {
+    color: var(--nike-color);
+}
+
+.puma-accent {
+    color: var(--puma-color);
+}
+
+.nike-bg {
+    background-color: var(--nike-color);
+}
+
+.puma-bg {
+    background-color: var(--puma-color);
+}
+
+.nike-gradient {
+    background: var(--nike-gradient);
+}
+
+.puma-gradient {
+    background: var(--puma-gradient);
+}
+
+/* Card Styling */
+.card {
+    border-radius: var(--card-border-radius);
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+    border: none;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+}
+
+.card-header {
+    font-weight: 700;
+    background-color: rgba(255, 255, 255, 0.05);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.assessment-header, 
+.factor-card .card-header {
+    background: linear-gradient(120deg, rgba(245, 100, 0, 0.1), rgba(0, 114, 187, 0.1));
+    border-bottom: none;
+    padding: 1.5rem;
+}
+
+/* Hero Section */
+.hero-section {
+    min-height: 85vh;
+    display: flex;
+    align-items: center;
+    position: relative;
+    padding: 4rem 0;
+}
+
+.hero-image-container {
+    position: relative;
+    height: 500px;
+    perspective: 1000px;
+}
+
+.hero-image {
+    position: absolute;
+    width: 80%;
+    transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+    border-radius: var(--card-border-radius);
+    overflow: hidden;
+}
+
+.nike-hero {
+    top: 0;
+    left: 0;
+    z-index: 2;
+    border: 2px solid rgba(245, 100, 0, 0.5);
+    transform: rotate(-5deg);
+}
+
+.puma-hero {
+    bottom: 0;
+    right: 0;
+    z-index: 1;
+    border: 2px solid rgba(0, 114, 187, 0.5);
+    transform: rotate(5deg);
+}
+
+.hero-image:hover {
+    transform: rotate(0) scale(1.05);
+    z-index: 3;
+}
+
+.overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 1.5rem;
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0) 100%);
+    transition: all 0.3s ease;
+}
+
+.nike-overlay {
+    border-bottom: 3px solid var(--nike-color);
+}
+
+.puma-overlay {
+    border-bottom: 3px solid var(--puma-color);
+}
+
+.overlay-text {
+    margin-bottom: 0;
+    font-weight: 700;
+    font-size: 1.8rem;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+/* Quick Comparison */
+.comparison-card {
+    transition: all 0.3s ease;
+    background-color: rgba(255, 255, 255, 0.03);
+}
+
+.comparison-card:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+.comparison-card i {
+    color: var(--bs-primary);
+    opacity: 0.7;
+    transition: all 0.3s ease;
+}
+
+.comparison-card:hover i {
+    opacity: 1;
+    transform: scale(1.1);
+}
+
+/* CTA Section */
+.cta-card {
+    background: linear-gradient(135deg, rgba(245, 100, 0, 0.1) 0%, rgba(0, 114, 187, 0.1) 100%);
+    border: none;
+}
+
+/* Footer */
+.footer {
+    background-color: rgba(33, 37, 41, 0.97);
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.footer a {
+    color: var(--bs-light);
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+
+.footer a:hover {
+    color: var(--bs-primary);
+    text-decoration: underline;
+}
+
+/* Refund Process Page */
+.refund-section {
+    padding: 5rem 0;
+}
+
+.refund-flowchart {
+    height: 800px;
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+.policy-card {
+    height: 100%;
+}
+
+.policy-card .card-header {
+    padding: 1.25rem;
+}
+
+.nike-policy .card-header {
+    background-color: rgba(245, 100, 0, 0.1);
+}
+
+.puma-policy .card-header {
+    background-color: rgba(0, 114, 187, 0.1);
+}
+
+/* Product Comparison Page */
+.spec-table th {
+    width: 30%;
+}
+
+.spec-table td {
+    width: 35%;
+}
+
+.nike-row {
+    position: relative;
+}
+
+.nike-row::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background-color: var(--nike-color);
+    opacity: 0.5;
+}
+
+.puma-row {
+    position: relative;
+}
+
+.puma-row::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background-color: var(--puma-color);
+    opacity: 0.5;
+}
+
+.feature-highlight {
+    background-color: rgba(255, 255, 255, 0.03);
+    padding: 3rem;
+    margin: 2rem 0;
+    border-radius: var(--card-border-radius);
+    position: relative;
+    overflow: hidden;
+}
+
+.nike-feature::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: var(--nike-gradient);
+}
+
+.puma-feature::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: var(--puma-gradient);
+}
+
+/* Factors Page */
+.factor-card {
+    margin-bottom: 3rem;
+}
+
+.factor-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    opacity: 0.8;
+}
+
+.accordion-button:not(.collapsed) {
+    background-color: rgba(var(--bs-primary-rgb), 0.1);
+    color: var(--bs-primary);
+}
+
+.comparison-table th {
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+/* Animation Effects */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.fade-in {
+    animation: fadeIn 0.8s ease forwards;
+}
+
+.delay-1 { animation-delay: 0.2s; }
+.delay-2 { animation-delay: 0.4s; }
+.delay-3 { animation-delay: 0.6s; }
+.delay-4 { animation-delay: 0.8s; }
+
+/* Responsive Design */
+@media (max-width: 991.98px) {
+    .hero-section {
+        text-align: center;
+        padding: 3rem 0;
+    }
+    
+    .hero-image-container {
+        height: 400px;
+        margin: 2rem 0;
+    }
+    
+    .nike-hero, .puma-hero {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%) rotate(0);
+        width: 70%;
+    }
+    
+    .nike-hero {
+        top: 0;
+    }
+    
+    .puma-hero {
+        bottom: 0;
+    }
+    
+    .hero-image:hover {
+        transform: translateX(-50%) scale(1.05);
+    }
+}
+
+@media (max-width: 767.98px) {
+    .hero-image-container {
+        height: 350px;
+    }
+    
+    .refund-flowchart {
+        height: 600px;
+    }
+    
+    .spec-table th,
+    .spec-table td {
+        width: auto;
+    }
+}
+
+@media (max-width: 575.98px) {
+    .hero-section {
+        min-height: auto;
+    }
+    
+    .hero-image-container {
+        height: 300px;
+    }
+    
+    .hero-image {
+        width: 85%;
+    }
+    
+    .overlay-text {
+        font-size: 1.5rem;
+    }
+    
+    .refund-flowchart {
+        height: 500px;
+    }
+}
+
+/* Simple Flowchart styles */
+.simple-flowchart {
+    margin: 20px 0;
+}
+
+.flowchart-item {
+    margin-bottom: 5px;
+    padding: 10px;
+    border-radius: 4px;
+    background-color: rgba(50, 50, 50, 0.2);
+    position: relative;
+}
+
+.flowchart-item h4 {
+    margin-top: 0;
+    margin-bottom: 5px;
+    font-weight: 600;
+}
+
+.flowchart-item p {
+    margin: 0;
+}
+
+.simple-arrow {
+    text-align: center;
+    font-size: 20px;
+    color: #999;
+    padding: 5px 0;
+    margin: 0 0 5px 0;
+}
